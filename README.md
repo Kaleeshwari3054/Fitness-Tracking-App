@@ -31,3 +31,4 @@ A visually engaging and responsive **React Native** app that simulates a fitness
 - **Custom Styling using StyleSheet and central Colors constants**
 
 ---
+"# Fitness-Tracking-App-TS" 
