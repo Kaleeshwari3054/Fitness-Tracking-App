@@ -1,50 +1,33 @@
-# Fitness Tracking App
+# 🏃‍♀️ Fitness Tracking App
 
-A simple fitness tracking application to help users monitor their workouts, set goals, and track progress.
+A visually engaging and responsive **React Native** app that simulates a fitness tracking experience. This app helps users monitor their daily steps, view their weekly activity summary, and manage their fitness profile — built using modern React Native UI libraries.
 
-## Features
+---
 
-- User registration and authentication
-- Log workouts (exercise, duration, calories, etc.)
-- Set and track fitness goals
-- View workout history and progress
-- Responsive user interface
+##  Features
 
-## Installation
+- **Home Screen**  
+  View daily steps, calories, distance, active minutes, and progress toward daily fitness goals.
+- **History Screen**  
+  Weekly activity chart for steps and calories using `react-native-chart-kit`.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/Fitness-Tracking-App.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd Fitness-Tracking-App/project
-    ```
-3. Install dependencies:
-    ```bash
-    npm install
-    ```
-4. Start the development server:
-    ```bash
-    npm start
-    ```
+- **Profile Screen**  
+  Update personal information like name, age, and fitness goals.
 
-## Usage
+- **Tab Navigation**  
+  Seamless navigation between screens using `react-navigation`.
 
-- Register or log in to your account.
-- Add new workouts and set your fitness goals.
-- View your progress on the dashboard.
+- **Push Notifications**  
+  Motivational notification triggered when daily goal is achieved.
+- **Error & Loading Handling**
+  Custom loading screen and retry UI for better UX.
 
-## Technologies Used
+## Tech Stack
 
-- Frontend: (e.g., React, HTML, CSS)
-- Backend: (e.g., Node.js, Express)
-- Database: (e.g., MongoDB, SQLite)
+- **React Native**
+- **React Navigation**
+- **react-native-chart-kit**
+- **react-native-push-notification**
+- **Custom Styling using StyleSheet and central Colors constants**
 
-## Contributing
-
-Contributions are welcome! Please open issues or submit pull requests.
-
-## License
-
-This project is licensed under the MIT License."# Fitness_Tracking_App" 
+---

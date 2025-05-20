@@ -11,10 +11,8 @@ import { useWeeklyActivity } from '@/hooks/useActivity';
 
 export default function HistoryScreen() {
   const { width: windowWidth } = useWindowDimensions();
-  const isMobile = windowWidth < 600;  // breakpoint for mobile screens
-
   const { data: weeklyData, loading, error, refresh } = useWeeklyActivity();
-  const [activeChart, setActiveChart] = React.useState('steps');
+  const [activeChart, setActiveChart] = React.useState<'steps' | 'calories' | 'distance' | 'activeMinutes'>('steps');
 
   if (loading) {
     return <LoadingScreen />;
@@ -34,7 +32,6 @@ export default function HistoryScreen() {
     );
   }
 
-  // Responsive chart width: max 500px or smaller if mobile
   const chartWidth = Math.min(windowWidth - 32, 500);
 
   const chartData = {
@@ -80,7 +77,7 @@ export default function HistoryScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Header title="Activity History" />
-
+      
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
@@ -91,24 +88,8 @@ export default function HistoryScreen() {
           onSelect={setActiveChart} 
         />
 
-        <View
-          style={[
-            styles.chartContainer,
-            {
-              marginHorizontal: isMobile ? 12 : 24,
-              padding: isMobile ? 12 : 16,
-            },
-          ]}
-        >
-          <Text
-            style={[
-              styles.chartTitle,
-              {
-                fontSize: isMobile ? 16 : 18,
-                marginBottom: isMobile ? 12 : 16,
-              },
-            ]}
-          >
+        <View style={styles.chartContainer}>
+          <Text style={styles.chartTitle}>
             Weekly {activeChart.charAt(0).toUpperCase() + activeChart.slice(1)}
           </Text>
           <View style={styles.chartWrapper}>
@@ -178,8 +159,9 @@ const styles = StyleSheet.create({
   chartContainer: {
     backgroundColor: Colors.white,
     borderRadius: 16,
+    marginHorizontal: 16,
     marginVertical: 8,
-    // marginHorizontal and padding will be overridden conditionally
+    padding: 16,
     shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
@@ -188,8 +170,9 @@ const styles = StyleSheet.create({
   },
   chartTitle: {
     fontFamily: 'Inter-SemiBold',
+    fontSize: 18,
     color: Colors.text,
-    // fontSize and marginBottom overridden conditionally
+    marginBottom: 16,
   },
   chartWrapper: {
     alignItems: 'center',
